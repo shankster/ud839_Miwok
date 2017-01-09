@@ -17,6 +17,13 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -24,5 +31,24 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
+
+        //Initialise and create an array
+        ArrayList<String> numbers_english= new ArrayList<String>();
+        numbers_english.add("zero");
+        numbers_english.add("one");
+        numbers_english.add("two");
+        numbers_english.add("three");
+        numbers_english.add("four");
+        numbers_english.add("five");
+        numbers_english.add("six");
+        numbers_english.add("seven");
+        numbers_english.add("eighth");
+        numbers_english.add("nine");
+
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, numbers_english);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(itemsAdapter);
     }
-}
+    }
